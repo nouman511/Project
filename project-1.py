@@ -43,3 +43,13 @@ def add_item(name,price,count):
         inventory[name] = {'price': price, 'count': count}
         print(f"Added {name} to inventory.")
     
+def buy_item(name,count):
+    global total_sales
+    if name not in inventory:
+        print("Item not found.")
+    elif inventory[name]['count'] < count:
+        print("Not enough items in stock.")
+    else:
+        inventory[name]['count'] -= count
+        total_sales += inventory[name]['price'] * count
+        print(f"Purchased {count} of {name}. Total cost: {inventory[name]['price'] * count}")
