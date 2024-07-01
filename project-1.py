@@ -68,3 +68,52 @@ def update_inventory(name, new_count):
         inventory[name]['count'] = new_count
         print(f"Inventory of {name} updated to {new_count}.")
 
+def display_inventory():
+    print("Inventory:")
+    for key, values in inventory.items():
+        print(f"{key} : {values['count']}")
+    print('Total Sales =',total_sales)
+
+def display_menu():
+    print("1. Add New Item")
+    print("2. Buy Item")
+    print("3. Change Item Price")
+    print("4. Update Inventory")
+    print("5. View Inventory")
+    print("6. View Total Sales")
+    print("7. Exit")
+
+def main():
+    welcome_message()
+    while True:
+        display_menu()
+        choice = input("Enter your choice: ")
+        if choice == '1':
+            name = input("Enter item name: ")
+            price = int(input("Enter item price: "))
+            count = int(input("Enter item count: "))
+            add_item(name, price, count)
+        elif choice == '2':
+            name = input("Enter item name: ")
+            count = int(input("Enter count to buy: "))
+            buy_item(name, count)
+        elif choice == '3':
+            name = input("Enter item name: ")
+            new_price = int(input("Enter new price: "))
+            change_price(name, new_price)
+        elif choice == '4':
+            name = input("Enter item name: ")
+            new_count = int(input("Enter new count: "))
+            update_inventory(name, new_count)
+        elif choice == '5':
+            print("\nCurrent Inventory:")
+            for item, info in inventory.items():
+                print(f"{item}: Price={info['price']}, Count={info['count']}")
+        elif choice == '6':
+            print(f"\nTotal Sales: {total_sales}")
+        elif choice == '7':
+            print("Exiting the system.")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+main()
