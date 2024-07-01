@@ -53,3 +53,18 @@ def buy_item(name,count):
         inventory[name]['count'] -= count
         total_sales += inventory[name]['price'] * count
         print(f"Purchased {count} of {name}. Total cost: {inventory[name]['price'] * count}")
+
+def change_price(name, new_price):
+    if name not in inventory:
+        print("Item not found.")
+    else:
+        inventory[name]['price'] = new_price
+        print(f"Price of {name} updated to {new_price}.")
+
+def update_inventory(name, new_count):
+    if name not in inventory:
+        print("Item not found.")
+    else:
+        inventory[name]['count'] = new_count
+        print(f"Inventory of {name} updated to {new_count}.")
+
