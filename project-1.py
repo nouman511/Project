@@ -24,3 +24,22 @@
 # 19. Review and refactor the code if necessary. Add comments and documentation to explain the functionality.
 # 20. Add a final commit to GitHub with any refinements and the completed project
 
+total_sales=0
+inventory={'Lcd':{'price':10000,'count':30},
+           'SSD 250 GB':{'price':5000,'count':50},
+           'Key board':{'price':2000,'count':20},
+           'Battery':{'price':3500,'count':25},
+           'RAM 16 GB':{'price':8000,'count':100},
+           'FAN':{'price':2500,'count':10}}
+
+
+def welcome_message():
+    print('Welcome')
+
+def add_item(name,price,count):
+    if name in inventory:
+        print("Item already exists. Use update_inventory to change count or change_price to change the price.")
+    else:
+        inventory[name] = {'price': price, 'count': count}
+        print(f"Added {name} to inventory.")
+    
